@@ -10,14 +10,13 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('images/website\ background\ 2.jpg') no-repeat center center fixed;
+            background: url('images/website background 2.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -29,11 +28,9 @@
             top: 0;
             z-index: 1000;
         }
-
         .logo img {
             width: 150px;
         }
-
         .nav-links a {
             color: #FFDD44;
             text-decoration: none;
@@ -41,39 +38,33 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-
         .nav-links a:hover {
             color: #4CAF50;
         }
-
         .hero {
-            background: rgba(0, 0, 0, 0.6) url('images/website\ background.jpg') center/cover;
+            background: rgba(0, 0, 0, 0.6) url('images/website background.jpg') center/cover;
             padding: 60px 20px;
             text-align: center;
         }
-
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 50px;
             color: #FFDD44;
             margin: 0;
         }
-
         .hero p {
             font-size: 22px;
             color: #dddddd;
         }
-
         .content-wrapper {
             padding: 160px;
             max-width: 1200px;
             margin: auto;
             background: rgba(0, 0, 0, 0.7);
-            display: flex; /* Changed to flex for custom layout */
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center items horizontally */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
         .info-box {
             background: rgba(30, 30, 30, 0.8);
             padding: 20px;
@@ -81,25 +72,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px; /* Space between boxes */
-            width: 100%; /* Full width */
-            max-width: 480px; /* Set a max width for each box */
-            border-radius: 10px; /* Added border-radius */
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 10px;
         }
-
         h2 {
             color: #4CAF50;
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
         }
-
         p {
             color: #dddddd;
             font-size: 18px;
             line-height: 1.6;
         }
-
         .image-placeholder {
             border: 2px solid #4CAF50;
             padding: 20px;
@@ -107,9 +95,8 @@
             font-size: 20px;
             text-align: center;
             height: 300px;
-            border-radius: 10px; /* Added border-radius */
+            border-radius: 10px;
         }
-
         .bottom-bar {
             background-color: rgba(20, 20, 20, 0.9);
             color: #ffffff;
@@ -118,17 +105,14 @@
             font-size: 14px;
             margin-top: auto;
         }
-
-        /* Flexbox layout for the two boxes in one row */
         .two-boxes {
             display: flex;
             justify-content: space-between;
-            width: 100%; /* Take full width of the parent */
-            margin-bottom: 20px; /* Space below the row */
+            width: 100%;
+            margin-bottom: 20px;
         }
     </style>
 </head>
-
 <body>
     <div class="navbar">
         <div class="logo">
@@ -140,40 +124,35 @@
             <a href="Rounding.html">Rounding</a>
         </div>
     </div>
-
     <div class="hero">
         <h1>Welcome to Math Methods</h1>
         <p>Unlock the beauty of mathematics with easy-to-understand explanations and engaging visuals.</p>
     </div>
-
     <div class="content-wrapper">
         <div class="two-boxes">
             <div class="info-box">
                 <h2>Our Mission</h2>
                 <p>Math Methods aims to make math accessible and enjoyable. We provide resources for mastering essential concepts through visual aids, examples, and interactive learning.</p>
                 <div class="image-placeholder">
-                    Visual of Math in Action
+                    <img src="images/website background.jpg" alt="Visual of Math in Action">
                 </div>
             </div>
-
             <div class="info-box">
                 <h2>Interactive Learning</h2>
                 <p>Explore math concepts with interactive tools and practice exercises that build a deeper understanding and confidence in math.</p>
                 <div class="image-placeholder">
-                    Students Engaging in Math
+                    <img src="images/Students Engaging in Math.jpg" alt="Students Engaging in Math">
                 </div>
             </div>
         </div>
-
         <div class="info-box">
             <h2>Why Math Matters</h2>
             <p>Mathematics is more than numbers; it's a tool for problem-solving, critical thinking, and innovation. Learn why math is an essential skill for everyone.</p>
             <div class="image-placeholder">
-                Symbolic Math Visuals
+                <img src="images/Symbolic Math Visuals.jpg" alt="Symbolic Math Visuals">
             </div>
         </div>
     </div>
-
     <div class="bottom-bar">
         <p>&copy; 2024 Math Methods. All rights reserved.</p>
     </div>
