@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Methods</title>
-    <!-- Include Google Fonts -->
+    <title>Rounding - Math Methods</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #a55757; /* Maroon background */
-            color: white;
+            background: url('https://i.imgur.com/RHh7vDs.jpg');
+            background-size: cover;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+            min-height: 100vh;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, #f8f8f8 25%, #e0e0e0 25%, #e0e0e0 50%, #f8f8f8 50%, #f8f8f8 75%, #d4d4d4 75%, #d4d4d4 100%);
-            background-size: 400px 400px;
+            background: rgba(0, 0, 0, 0.8);
             padding: 15px 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -33,157 +32,187 @@
 
         .logo img {
             width: 150px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
         }
 
         .nav-links a {
-            color: black;
+            color: #FFDD44;
             text-decoration: none;
-            margin-left: 30px;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 20px;
+            margin-left: 20px;
             font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.7);
-            transform: translateY(-3px);
+            color: #4CAF50;
         }
 
-        .icon {
-            display: none;
+        .hero {
+            background: rgba(0, 0, 0, 0.6) url('https://source.unsplash.com/random/1920x600/?math,rounding') center/cover;
+            padding: 80px 20px;
+            text-align: center;
         }
 
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .icon {
-                display: block;
-                color: black;
-                font-size: 30px;
-                cursor: pointer;
-            }
-
-            .navbar.responsive .nav-links {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgba(255, 255, 255, 0.9);
-                width: 100%;
-            }
-
-            .navbar.responsive .nav-links a {
-                margin: 10px 0;
-                padding: 15px 20px;
-                text-align: center;
-            }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px;
+            color: #FFDD44;
         }
 
-        /* Two-column layout */
+        .hero p {
+            font-size: 22px;
+            color: #dddddd;
+        }
+
         .content-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
-            align-items: center;
-            padding: 50px;
-            flex-grow: 1; /* Allow it to grow and fill space */
-            min-height: calc(100vh - 100px); /* Adjusted to ensure room for navbar and bottom bar */
+            padding: 125px;
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 1px;
         }
 
-        .image-placeholder {
-            background-color: #444; /* Gray background to represent image space */
-            width: 100%;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 20px;
+        .info-section {
+            margin-bottom: 40px;
         }
 
         h2 {
-            text-align: left;
-            font-size: 36px; /* Adjusted size for h2 */
-            margin: 0;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 20px;
+            color: #4CAF50;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
         }
 
         p {
-            text-align: left;
+            color: #dddddd;
             font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 20px;
-            color: white;
         }
 
-        /* Bottom bar styles */
-        .bottom-bar {
-            background-color: #333; /* Dark gray background */
-            color: white;
+        .example {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
             text-align: center;
-            padding: 2px 0; /* Further reduced padding for thickness */
-            width: 100%;
-            font-size: 14px; /* Optional: Adjust font size */
-            position: relative; /* Adjusted position */
+        }
+
+        .practice-exercises {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .answer {
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #FFDD44;
+        }
+
+        .bottom-bar {
+            background-color: rgba(20, 20, 20, 0.9);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .toggle-answer {
+            cursor: pointer;
+            color: #FFDD44;
+            text-decoration: underline;
+            margin-top: 5px;
         }
     </style>
+    <script>
+        function toggleAnswer(answerId) {
+            const answerElement = document.getElementById(answerId);
+            if (answerElement.style.display === "none") {
+                answerElement.style.display = "block";
+            } else {
+                answerElement.style.display = "none";
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <div class="navbar" id="myNavbar">
+    <div class="navbar">
         <div class="logo">
-            <!-- Link the logo to home.html -->
-            <a href="index.html">
-            </a>
+            <a href="index.html"><img src="Screenshot 2024-10-26 101008.png" alt="Math Methods Logo"></a>
         </div>
-
         <div class="nav-links">
-            <a href="Exponents.html">Exponents</a>
-            <a href="Rounding.html">Rounding</a>
-            <a href="Extra.html">Bedmas</a>
+            <a href="exponents.html">Exponents</a>
+            <a href="rounding.html">Rounding</a>
+            <a href="bedmas.html">BEDMAS</a>
         </div>
-
-        <span class="icon" onclick="toggleMenu()">&#9776;</span>
     </div>
 
-    <script>
-        function toggleMenu() {
-            var navbar = document.getElementById("myNavbar");
-            navbar.classList.toggle("responsive");
-        }
-    </script>
+    <div class="hero">
+        <h1>Understanding Rounding</h1>
+        <p>Learn why and how rounding is used in mathematics.</p>
+    </div>
 
     <div class="content-wrapper">
-        <!-- Left side: Placeholder for the image -->
-        <div class="image-placeholder">
-            Image Placeholder
+        <div class="info-section">
+            <h2>Why Rounding is Done</h2>
+            <p>Rounding is used to simplify numbers, making them easier to work with. It helps in estimating values and is useful in everyday situations, such as when dealing with money or measurements.</p>
         </div>
 
-        <!-- Right side: Text content -->
-        <div class="text-content">
-            <h2>Rounding</h2>
-            <p>Welcome to Math Methods, your go-to resource for mastering key math concepts, tailored specifically for middle school students.</p>
-            <p>Our website offers comprehensive resources on a variety of math topics to help students excel in their studies. Whether you're looking to strengthen your understanding of exponents, rounding, or BEDMAS, we have detailed explanations and examples to guide you through these concepts.</p>
+        <div class="info-section">
+            <h2>How Rounding is Done</h2>
+            <p>To round a number, follow these steps:</p>
+            <ul>
+                <li>Identify the place value to which you want to round (e.g., nearest whole number, tenth, hundredth).</li>
+                <li>Look at the digit immediately to the right of that place value.</li>
+                <li>If that digit is 5 or greater, round up. If it’s less than 5, round down.</li>
+            </ul>
+            <div class="example">
+                <p>Example: <strong>Rounding 4.67 to the nearest whole number</strong></p>
+                <p>Step 1: Look at the tenths place (6).<br>
+                   Step 2: Since 6 is greater than 5, round up.<br>
+                   Result: <strong>5</strong></p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Practice Exercises</h2>
+            <div class="practice-exercises">
+                <p>Round the following numbers:</p>
+                <ul>
+                    <li>
+                        1. Round 3.8 to the nearest whole number.
+                        <span class="toggle-answer" onclick="toggleAnswer('answer1')">Show Answer</span>
+                        <span id="answer1" class="answer">4</span>
+                    </li>
+                    <li>
+                        2. Round 7.4 to the nearest whole number.
+                        <span class="toggle-answer" onclick="toggleAnswer('answer2')">Show Answer</span>
+                        <span id="answer2" class="answer">7</span>
+                    </li>
+                    <li>
+                        3. Round 15.99 to one decimal place.
+                        <span class="toggle-answer" onclick="toggleAnswer('answer3')">Show Answer</span>
+                        <span id="answer3" class="answer">16.0</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Related Videos</h2>
+            <p>Here are some videos to help you understand rounding better:</p>
+            <ul>
+                <li><a href="https://www.example.com/video1" target="_blank" style="color: #FFDD44;">Introduction to Rounding</a></li>
+                <li><a href="https://www.example.com/video2" target="_blank" style="color: #FFDD44;">Rounding Numbers Explained</a></li>
+            </ul>
         </div>
     </div>
 
-    <!-- Bottom bar -->
     <div class="bottom-bar">
-        <p>&copy; 2024 Math Methods. All Rights Reserved.</p>
+        <p>&copy; 2024 Math Methods. All rights reserved.</p>
     </div>
-
 </body>
-
 </html>

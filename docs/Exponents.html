@@ -1,189 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Methods</title>
-    <!-- Include Google Fonts -->
+    <title>Exponents - Math Methods</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #a55757; /* Maroon background */
-            color: white;
+            background: url('https://i.imgur.com/RHh7vDs.jpg');
+            background-size: cover;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+            min-height: 100vh;
         }
-
+        
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, #f8f8f8 25%, #e0e0e0 25%, #e0e0e0 50%, #f8f8f8 50%, #f8f8f8 75%, #d4d4d4 75%, #d4d4d4 100%);
-            background-size: 400px 400px;
-            padding: 15px 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 30px; /* Reduced padding */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo img {
-            width: 150px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
-        }
-
         .nav-links a {
-            color: black;
+            color: #FFDD44;
             text-decoration: none;
-            margin-left: 30px;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 20px;
+            margin-left: 20px;
             font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.7);
-            transform: translateY(-3px);
+            color: #4CAF50;
         }
 
-        .icon {
-            display: none;
-        }
-
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .icon {
-                display: block;
-                color: black;
-                font-size: 30px;
-                cursor: pointer;
-            }
-
-            .navbar.responsive .nav-links {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgba(255, 255, 255, 0.9);
-                width: 100%;
-            }
-
-            .navbar.responsive .nav-links a {
-                margin: 10px 0;
-                padding: 15px 20px;
-                text-align: center;
-            }
-        }
-
-        /* Two-column layout */
         .content-wrapper {
+            padding: 150px; /* Reduced padding */
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 0;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
-            align-items: center;
-            padding: 50px;
-            flex-grow: 1; /* Allow it to grow and fill space */
-            min-height: calc(100vh - 100px); /* Adjusted to ensure room for navbar and bottom bar */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px; /* Space between the boxes */
         }
 
-        .image-placeholder {
-            background-color: #444; /* Gray background to represent image space */
-            width: 100%;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 20px;
+        h1 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            grid-column: span 2; /* Makes the title span across both columns */
         }
 
         h2 {
-            text-align: left;
-            font-size: 36px; /* Adjusted size for h2 */
-            margin: 0;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 20px;
+            color: #4CAF50;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
         }
 
         p {
-            text-align: left;
+            color: #dddddd;
             font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 20px;
-            color: white;
         }
 
-        /* Bottom bar styles */
+        .info-box {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
         .bottom-bar {
-            background-color: #333; /* Dark gray background */
-            color: white;
+            background-color: rgba(20, 20, 20, 0.9);
+            color: #ffffff;
             text-align: center;
-            padding: 2px 0; /* Further reduced padding for thickness */
-            width: 100%;
-            font-size: 14px; /* Optional: Adjust font size */
-            position: relative; /* Adjusted position */
+            padding: 10px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .toggle-answer {
+            cursor: pointer;
+            color: #FFDD44;
+            text-decoration: underline;
+            margin-top: 5px;
+        }
+
+        .answer {
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #FFDD44;
         }
     </style>
+    <script>
+        function toggleAnswer(answerId) {
+            const answerElement = document.getElementById(answerId);
+            if (answerElement.style.display === "none") {
+                answerElement.style.display = "block";
+            } else {
+                answerElement.style.display = "none";
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <div class="navbar" id="myNavbar">
+    <div class="navbar">
         <div class="logo">
-            <!-- Link the logo to home.html -->
-            <a href="index.html">
-            </a>
+            <a href="index.html"><img src="Screenshot 2024-10-26 101008.png" alt="Math Methods Logo" width="150"></a>
         </div>
-
         <div class="nav-links">
-            <a href="Exponents.html">Exponents</a>
-            <a href="Rounding.html">Rounding</a>
-            <a href="Extra.html">Bedmas</a>
+            <a href="exponents.html">Exponents</a>
+            <a href="rounding.html">Rounding</a>
+            <a href="bedmas.html">BEDMAS</a>
         </div>
-
-        <span class="icon" onclick="toggleMenu()">&#9776;</span>
     </div>
-
-    <script>
-        function toggleMenu() {
-            var navbar = document.getElementById("myNavbar");
-            navbar.classList.toggle("responsive");
-        }
-    </script>
 
     <div class="content-wrapper">
-        <!-- Left side: Placeholder for the image -->
-        <div class="image-placeholder">
-            Image Placeholder
+        <h1>Exponents</h1> <!-- Main title for Exponents page -->
+
+        <div class="info-box">
+            <h2>Exponential Form</h2>
+            <p>Exponential form is expressed as \(a^n\), where \(a\) is the base and \(n\) is the exponent.</p>
+            <p><strong>Example:</strong> \(2^3 = 2 \times 2 \times 2 = 8\)</p>
+            <h3>Worked Example</h3>
+            <p>Calculate \(4^2\): 
+                <span class="toggle-answer" onclick="toggleAnswer('answer1')">Show Answer</span>
+                <span id="answer1" class="answer">Answer: \(4^2 = 4 \times 4 = 16\)</span>
+            </p>
         </div>
 
-        <!-- Right side: Text content -->
-        <div class="text-content">
-            <h2>Exponents</h2>
-            <p>Welcome to Math Methods, your go-to resource for mastering key math concepts, tailored specifically for middle school students.</p>
-            <p>Our website offers comprehensive resources on a variety of math topics to help students excel in their studies. Whether you're looking to strengthen your understanding of exponents, rounding, or BEDMAS, we have detailed explanations and examples to guide you through these concepts.</p>
+        <div class="info-box">
+            <h2>Expanded Form</h2>
+            <p>Expanded form shows the multiplication explicitly.</p>
+            <p><strong>Example:</strong> \(3^4 = 3 \times 3 \times 3 \times 3 = 81\)</p>
+            <h3>Worked Example</h3>
+            <p>Expand \(5^3\): 
+                <span class="toggle-answer" onclick="toggleAnswer('answer2')">Show Answer</span>
+                <span id="answer2" class="answer">Answer: \(5^3 = 5 \times 5 \times 5 = 125\)</span>
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h2>Standard Form</h2>
+            <p>Standard form is the numerical value of an exponent.</p>
+            <p><strong>Example:</strong> \(5^2 = 25\)</p>
+            <h3>Worked Example</h3>
+            <p>Convert \(2^5\): 
+                <span class="toggle-answer" onclick="toggleAnswer('answer3')">Show Answer</span>
+                <span id="answer3" class="answer">Answer: \(2^5 = 2 \times 2 \times 2 \times 2 \times 2 = 32\)</span>
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h2>Practice Exercises</h2>
+            <p>1. Write \(6^2\) in exponential form and calculate it. 
+                <span class="toggle-answer" onclick="toggleAnswer('answer4')">Show Answer</span>
+                <span id="answer4" class="answer">Answer: \(6^2 = 36\)</span>
+            </p>
+            <p>2. Expand \(2^4\). 
+                <span class="toggle-answer" onclick="toggleAnswer('answer5')">Show Answer</span>
+                <span id="answer5" class="answer">Answer: \(2^4 = 2 \times 2 \times 2 \times 2 = 16\)</span>
+            </p>
+            <p>3. Convert \(10^3\) into standard form. 
+                <span class="toggle-answer" onclick="toggleAnswer('answer6')">Show Answer</span>
+                <span id="answer6" class="answer">Answer: \(10^3 = 1000\)</span>
+            </p>
+        </div>
+
+        <div class="info-box" style="grid-column: span 2;"> <!-- This box spans the entire width -->
+            <h2>Videos</h2>
+            <p>Watch these videos for a better understanding:</p>
+            <p><a href="https://www.youtube.com/watch?v=example1" target="_blank">Video 1: Introduction to Exponents</a></p>
+            <p><a href="https://www.youtube.com/watch?v=example2" target="_blank">Video 2: Exponent Rules</a></p>
         </div>
     </div>
 
-    <!-- Bottom bar -->
     <div class="bottom-bar">
-        <p>&copy; 2024 Math Methods. All Rights Reserved.</p>
+        <p>&copy; 2024 Math Methods. All rights reserved.</p>
     </div>
-
 </body>
-
 </html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEDMAS - Math Methods</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: url('https://i.imgur.com/RHh7vDs.jpg');
+            background-size: cover;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links a {
+            color: #FFDD44;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+
+        .content-wrapper {
+            padding: 325px;
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 1px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #dddddd;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .answer {
+            display: none;
+            margin-top: 10px;
+            color: #FFDD44;
+        }
+
+        .bottom-bar {
+            background-color: rgba(20, 20, 20, 0.9);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+    <script>
+        function toggleAnswer(answerId) {
+            const answerElement = document.getElementById(answerId);
+            if (answerElement.style.display === "none") {
+                answerElement.style.display = "block";
+            } else {
+                answerElement.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="Screenshot 2024-10-26 101008.png" alt="Math Methods Logo" width="150"></a>
+        </div>
+        <div class="nav-links">
+            <a href="exponents.html">Exponents</a>
+            <a href="rounding.html">Rounding</a>
+            <a href="bedmas.html">BEDMAS</a>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <h1>BEDMAS</h1>
+
+        <div class="info-box">
+            <h2>What is BEDMAS?</h2>
+            <p>BEDMAS is an acronym that helps remember the order of operations in mathematics:</p>
+            <ul>
+                <li>B: Brackets</li>
+                <li>E: Exponents</li>
+                <li>D: Division</li>
+                <li>M: Multiplication</li>
+                <li>A: Addition</li>
+                <li>S: Subtraction</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>Worked Example</h2>
+            <p>Calculate the following expression: \(3 + 6 \times (5 + 4) \div 3 - 7\).</p>
+            <p><strong>Step-by-Step:</strong></p>
+            <p>1. Solve inside the brackets: \(5 + 4 = 9\).</p>
+            <p>2. Now, the expression is \(3 + 6 \times 9 \div 3 - 7\).</p>
+            <p>3. Next, perform multiplication and division from left to right:</p>
+            <p>6 × 9 = 54, then \(54 \div 3 = 18\).</p>
+            <p>4. Now, the expression is \(3 + 18 - 7\).</p>
+            <p>5. Finally, perform addition and subtraction from left to right: \(3 + 18 = 21\) and \(21 - 7 = 14\).</p>
+            <p><strong>Final Answer: 14</strong></p>
+        </div>
+
+        <div class="info-box">
+            <h2>Practice Exercises</h2>
+            <p>1. Calculate: \(8 + 2 \times 5 - 3\) <button class="button" onclick="toggleAnswer('answer1')">Show Answer</button></p>
+            <p id="answer1" class="answer">Answer: 17</p>
+            
+            <p>2. Calculate: \( (4 + 6) \times 2 - 5\) <button class="button" onclick="toggleAnswer('answer2')">Show Answer</button></p>
+            <p id="answer2" class="answer">Answer: 15</p>
+            
+            <p>3. Calculate: \(9 - (3 + 2) \times 2 + 6\) <button class="button" onclick="toggleAnswer('answer3')">Show Answer</button></p>
+            <p id="answer3" class="answer">Answer: 0</p>
+        </div>
+
+        <div class="info-box">
+            <h2>Videos</h2>
+            <p>Watch these videos for a better understanding:</p>
+            <p><a href="https://www.youtube.com/watch?v=example1" target="_blank">Video 1: Understanding BEDMAS</a></p>
+            <p><a href="https://www.youtube.com/watch?v=example2" target="_blank">Video 2: Order of Operations Explained</a></p>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        <p>&copy; 2024 Math Methods. All rights reserved.</p>
+    </div>
+</body>
+</html>

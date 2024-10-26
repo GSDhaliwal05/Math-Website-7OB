@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Methods</title>
-    <!-- Include Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #a55757; /* Maroon background */
-            color: white;
+            background: url('https://i.imgur.com/RHh7vDs.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+            min-height: 100vh;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(135deg, #f8f8f8 25%, #e0e0e0 25%, #e0e0e0 50%, #f8f8f8 50%, #f8f8f8 75%, #d4d4d4 75%, #d4d4d4 100%);
-            background-size: 400px 400px;
-            padding: 15px 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -33,158 +32,150 @@
 
         .logo img {
             width: 150px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
         }
 
         .nav-links a {
-            color: black;
+            color: #FFDD44;
             text-decoration: none;
-            margin-left: 30px;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 20px;
+            margin-left: 20px;
             font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.7);
-            transform: translateY(-3px);
+            color: #4CAF50;
         }
 
-        .icon {
-            display: none;
+        .hero {
+            background: rgba(0, 0, 0, 0.6) url('https://source.unsplash.com/random/1920x600/?math,abstract') center/cover;
+            padding: 60px 20px;
+            text-align: center;
         }
 
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .icon {
-                display: block;
-                color: black;
-                font-size: 30px;
-                cursor: pointer;
-            }
-
-            .navbar.responsive .nav-links {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: rgba(255, 255, 255, 0.9);
-                width: 100%;
-            }
-
-            .navbar.responsive .nav-links a {
-                margin: 10px 0;
-                padding: 15px 20px;
-                text-align: center;
-            }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px;
+            color: #FFDD44;
+            margin: 0;
         }
 
-        /* Two-column layout */
+        .hero p {
+            font-size: 22px;
+            color: #dddddd;
+        }
+
         .content-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
-            align-items: center;
-            padding: 50px;
-            flex-grow: 1; /* Allow it to grow and fill space */
-            min-height: calc(100vh - 100px); /* Adjusted to ensure room for navbar and bottom bar */
+            padding: 160px;
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex; /* Changed to flex for custom layout */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
         }
 
-        .image-placeholder {
-            background-color: #444; /* Gray background to represent image space */
-            width: 100%;
-            height: 300px;
+        .info-box {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 20px;
+            text-align: center;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            color: #fff;
-            font-size: 20px;
-            border-radius: 10px; /* Rounded corners for a modern touch */
+            margin-bottom: 20px; /* Space between boxes */
+            width: 100%; /* Full width */
+            max-width: 480px; /* Set a max width for each box */
+            border-radius: 10px; /* Added border-radius */
         }
 
         h2 {
-            text-align: left;
-            font-size: 36px; /* Adjusted size for h2 */
-            margin: 0;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 20px;
+            color: #4CAF50;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
         }
 
         p {
-            text-align: left;
+            color: #dddddd;
             font-size: 18px;
             line-height: 1.6;
-            margin-bottom: 20px;
-            color: white;
         }
 
-        /* Bottom bar styles */
-        .bottom-bar {
-            background-color: #333; /* Dark gray background */
-            color: white;
+        .image-placeholder {
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            color: #ffffff;
+            font-size: 20px;
             text-align: center;
-            padding: 10px 0; /* Increased padding for better visibility */
-            width: 100%;
-            font-size: 14px; /* Optional: Adjust font size */
-            position: relative; /* Adjusted position */
+            height: 300px;
+            border-radius: 10px; /* Added border-radius */
+        }
+
+        .bottom-bar {
+            background-color: rgba(20, 20, 20, 0.9);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        /* Flexbox layout for the two boxes in one row */
+        .two-boxes {
+            display: flex;
+            justify-content: space-between;
+            width: 100%; /* Take full width of the parent */
+            margin-bottom: 20px; /* Space below the row */
         }
     </style>
 </head>
 
 <body>
-    <div class="navbar" id="myNavbar">
+    <div class="navbar">
         <div class="logo">
-            <a href="index.html">
-                <img src="logo.png" alt="Math Methods Logo"> <!-- Replace with your logo image -->
-            </a>
+            <a href="index.html"><img src="Screenshot 2024-10-26 101008.png" alt="Math Methods Logo"></a>
         </div>
-
         <div class="nav-links">
             <a href="exponents.html">Exponents</a>
             <a href="rounding.html">Rounding</a>
             <a href="bedmas.html">BEDMAS</a>
         </div>
-
-        <span class="icon" onclick="toggleMenu()">&#9776;</span>
     </div>
 
-    <script>
-        function toggleMenu() {
-            var navbar = document.getElementById("myNavbar");
-            navbar.classList.toggle("responsive");
-        }
-    </script>
+    <div class="hero">
+        <h1>Welcome to Math Methods</h1>
+        <p>Unlock the beauty of mathematics with easy-to-understand explanations and engaging visuals.</p>
+    </div>
 
     <div class="content-wrapper">
-        <!-- Left side: Placeholder for the image -->
-        <div class="image-placeholder">
-            Image Placeholder
+        <div class="two-boxes">
+            <div class="info-box">
+                <h2>Our Mission</h2>
+                <p>Math Methods aims to make math accessible and enjoyable. We provide resources for mastering essential concepts through visual aids, examples, and interactive learning.</p>
+                <div class="image-placeholder">
+                    Visual of Math in Action
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h2>Interactive Learning</h2>
+                <p>Explore math concepts with interactive tools and practice exercises that build a deeper understanding and confidence in math.</p>
+                <div class="image-placeholder">
+                    Students Engaging in Math
+                </div>
+            </div>
         </div>
 
-        <!-- Right side: Text content -->
-        <div class="text-content">
-            <h2>About Us</h2>
-            <p>Welcome to Math Methods, your go-to resource for mastering key math concepts, tailored specifically for middle school students.</p>
-            <p>Our website offers comprehensive resources on a variety of math topics to help students excel in their studies. Whether you're looking to strengthen your understanding of exponents, rounding, or BEDMAS, we have detailed explanations and examples to guide you through these concepts.</p>
+        <div class="info-box">
+            <h2>Why Math Matters</h2>
+            <p>Mathematics is more than numbers; it's a tool for problem-solving, critical thinking, and innovation. Learn why math is an essential skill for everyone.</p>
+            <div class="image-placeholder">
+                Symbolic Math Visuals
+            </div>
         </div>
     </div>
 
-    <!-- Bottom bar -->
     <div class="bottom-bar">
-        <p>&copy; 2024 Math Methods. All Rights Reserved.</p>
+        <p>&copy; 2024 Math Methods. All rights reserved.</p>
     </div>
-
 </body>
-
 </html>
