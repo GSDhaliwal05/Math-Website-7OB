@@ -96,6 +96,12 @@
             text-align: center;
             height: 300px;
             border-radius: 10px;
+            overflow: hidden;
+        }
+        .image-placeholder img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
         }
         .bottom-bar {
             background-color: rgba(20, 20, 20, 0.9);
@@ -110,6 +116,21 @@
             justify-content: space-between;
             width: 100%;
             margin-bottom: 20px;
+        }
+        /* Resizing photos 1 and 3 */
+        .content-wrapper .info-box img {
+            max-width: 100%; /* Ensures images don’t exceed container width */
+            height: auto;
+        }
+        /* Specific resizing for image 1 (Our Mission) */
+        .two-boxes .info-box:first-child img {
+            width: 80%; /* Adjust to the desired size */
+            max-width: 350px; /* Sets a maximum width */
+        }
+        /* Specific resizing for image 3 (Why Math Matters) */
+        .content-wrapper > .info-box:last-child img {
+            width: 80%; /* Adjust to the desired size */
+            max-width: 350px; /* Sets a maximum width */
         }
     </style>
 </head>
