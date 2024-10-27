@@ -10,7 +10,7 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('images/bedmas background.jpg');
+            background: url('images/bedmas\ background.jpg');
             background-size: cover;
             color: #ffffff;
             display: flex;
@@ -23,7 +23,7 @@
             justify-content: space-between;
             align-items: center;
             background: rgba(0, 0, 0, 0.8);
-            padding: 15px 30px;
+            padding: 10px 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
@@ -31,7 +31,7 @@
         }
 
         .nav-links a {
-            color: #FFDD44; /* Yellow */
+            color: #FFDD44;
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
@@ -39,27 +39,31 @@
         }
 
         .nav-links a:hover {
-            color: #FFDD44; /* Yellow */
+            color: #FFD700;
         }
 
         .content-wrapper {
-            padding: 325px;
+            padding: 50px;
             max-width: 1200px;
             margin: auto;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 1px;
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         h1 {
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             font-size: 48px;
-            color: #FFDD44; /* Yellow */
+            color: #FFD700;
             margin-bottom: 20px;
+            grid-column: span 2;
         }
 
         h2 {
-            color: #FFDD44; /* Yellow */
+            color: #FFD700;
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
@@ -75,27 +79,6 @@
             background: rgba(30, 30, 30, 0.8);
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            background-color: #FFDD44; /* Yellow */
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .button:hover {
-            background-color: #FFC107; /* Slightly darker yellow */
-        }
-
-        .answer {
-            display: none;
-            margin-top: 10px;
-            color: #FFDD44; /* Yellow */
         }
 
         .bottom-bar {
@@ -107,27 +90,37 @@
             margin-top: auto;
         }
 
-        /* Styles for video links */
-        .info-box a {
-            color: #FFDD44; /* Yellow */
+        /* Style for links in the video section */
+        .video-links a {
+            color: #FFDD44;
             text-decoration: underline;
-            transition: color 0.3s;
         }
 
-        .info-box a:hover {
-            color: #FFC107; /* Slightly darker yellow on hover */
+        .video-links a:hover {
+            color: #FFD700;
+        }
+
+        /* Team Section Styles */
+        .team-section {
+            grid-column: span 2; /* Makes the team section span both columns */
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            margin: 0 15px; /* Added margin for spacing */
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
     </style>
-    <script>
-        function toggleAnswer(answerId) {
-            const answerElement = document.getElementById(answerId);
-            if (answerElement.style.display === "none") {
-                answerElement.style.display = "block";
-            } else {
-                answerElement.style.display = "none";
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -146,48 +139,33 @@
         <h1>BEDMAS</h1>
 
         <div class="info-box">
-            <h2>What is BEDMAS?</h2>
-            <p>BEDMAS is an acronym that helps remember the order of operations in mathematics:</p>
-            <ul>
-                <li>B: Brackets</li>
-                <li>E: Exponents</li>
-                <li>D: Division</li>
-                <li>M: Multiplication</li>
-                <li>A: Addition</li>
-                <li>S: Subtraction</li>
-            </ul>
+            <h2>BEDMAS Explained</h2>
+            <p>BEDMAS stands for Brackets, Exponents, Division and Multiplication (from left to right), Addition and Subtraction (from left to right).</p>
         </div>
 
         <div class="info-box">
-            <h2>Worked Example</h2>
-            <p>Calculate the following expression: \(3 + 6 \times (5 + 4) \div 3 - 7\).</p>
-            <p><strong>Step-by-Step:</strong></p>
-            <p>1. Solve inside the brackets: \(5 + 4 = 9\).</p>
-            <p>2. Now, the expression is \(3 + 6 \times 9 \div 3 - 7\).</p>
-            <p>3. Next, perform multiplication and division from left to right:</p>
-            <p>6 × 9 = 54, then \(54 \div 3 = 18\).</p>
-            <p>4. Now, the expression is \(3 + 18 - 7\).</p>
-            <p>5. Finally, perform addition and subtraction from left to right: \(3 + 18 = 21\) and \(21 - 7 = 14\).</p>
-            <p><strong>Final Answer: 14</strong></p>
+            <h2>Example</h2>
+            <p>For example, in the expression \(8 + 2 \times 5\), you would first do the multiplication:</p>
+            <p><strong>Answer:</strong> \(8 + 10 = 18\)</p>
         </div>
 
-        <div class="info-box">
-            <h2>Practice Exercises</h2>
-            <p>1. Calculate: \(8 + 2 \times 5 - 3\) <button class="button" onclick="toggleAnswer('answer1')">Show Answer</button></p>
-            <p id="answer1" class="answer">Answer: 17</p>
-            
-            <p>2. Calculate: \( (4 + 6) \times 2 - 5\) <button class="button" onclick="toggleAnswer('answer2')">Show Answer</button></p>
-            <p id="answer2" class="answer">Answer: 15</p>
-            
-            <p>3. Calculate: \(9 - (3 + 2) \times 2 + 6\) <button class="button" onclick="toggleAnswer('answer3')">Show Answer</button></p>
-            <p id="answer3" class="answer">Answer: 0</p>
+        <div class="info-box" style="grid-column: span 2;"> <!-- Centered the last info box under the first two -->
+            <h2>Practice Problems</h2>
+            <p>1. Solve: \(3 + 6 \times (5 + 4)\)</p>
+            <p>2. Solve: \(8 \times 2^2 - 3\)</p>
+            <p>3. Solve: \(5 + (2 + 3) \times 4\)</p>
         </div>
 
-        <div class="info-box">
+        <div class="info-box" style="grid-column: span 2;">
             <h2>Videos</h2>
-            <p>Watch these videos for a better understanding:</p>
-            <p><a href="https://www.youtube.com/watch?v=ox06qIV2c1U" target="_blank">Video 1: Understanding BEDMAS <br> & <br> Order of Operations Explained</a></p>
+            <p>Watch these helpful videos to understand BEDMAS better:</p>
+            <div class="video-links">
+                <a href="https://www.youtube.com/watch?v=ZMTzZpR1t94" target="_blank">Understanding BEDMAS</a><br>
+                <a href="https://www.youtube.com/watch?v=Y3b7Fq9fs94" target="_blank">BEDMAS Explained</a>
+            </div>
         </div>
+
+        
     </div>
 
     <div class="bottom-bar">
