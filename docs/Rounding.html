@@ -10,7 +10,7 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('images/rounding\ background.jpg');
+            background: url('images/rounding background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
             display: flex;
@@ -35,7 +35,7 @@
         }
 
         .nav-links a {
-            color: #FFDD44;
+            color: #FFDD44; /* Bright yellow for links */
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
@@ -43,11 +43,11 @@
         }
 
         .nav-links a:hover {
-            color: #4CAF50;
+            color: #FFD700; /* A brighter shade of yellow on hover */
         }
 
         .hero {
-            background: rgba(0, 0, 0, 0.6) url('images/rounding\ background.jpg') center/cover;
+            background: rgba(0, 0, 0, 0.6);
             padding: 80px 20px;
             text-align: center;
         }
@@ -56,6 +56,7 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 50px;
             color: #FFDD44;
+            margin: 0;
         }
 
         .hero p {
@@ -64,19 +65,21 @@
         }
 
         .content-wrapper {
-            padding: 125px;
+            padding: 50px 20px; /* More compact padding */
             max-width: 1200px;
             margin: auto;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 1px;
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
         }
 
         .info-section {
             margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 221, 68, 0.5);
+            padding-bottom: 20px;
         }
 
         h2 {
-            color: #4CAF50;
+            color: #FFDD44; /* Yellow for subheadings */
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
@@ -88,7 +91,7 @@
             line-height: 1.6;
         }
 
-        .example {
+        .example, .practice-exercises {
             background: rgba(30, 30, 30, 0.8);
             padding: 20px;
             border-radius: 10px;
@@ -96,18 +99,11 @@
             text-align: center;
         }
 
-        .practice-exercises {
-            background: rgba(30, 30, 30, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
         .answer {
             display: none;
             margin-top: 10px;
             font-weight: bold;
-            color: #FFDD44;
+            color: #FFDD44; /* Yellow for answers */
         }
 
         .bottom-bar {
@@ -121,19 +117,24 @@
 
         .toggle-answer {
             cursor: pointer;
-            color: #FFDD44;
+            color: #FFDD44; /* Yellow for answer toggle */
             text-decoration: underline;
             margin-top: 5px;
+        }
+
+        .related-videos a {
+            color: #FFDD44; /* Bright yellow for video links */
+            text-decoration: underline;
+        }
+
+        .related-videos a:hover {
+            color: #FFD700; /* A brighter shade of yellow on hover */
         }
     </style>
     <script>
         function toggleAnswer(answerId) {
             const answerElement = document.getElementById(answerId);
-            if (answerElement.style.display === "none") {
-                answerElement.style.display = "block";
-            } else {
-                answerElement.style.display = "none";
-            }
+            answerElement.style.display = (answerElement.style.display === "none") ? "block" : "none";
         }
     </script>
 </head>
@@ -170,7 +171,7 @@
                 <li>If that digit is 5 or greater, round up. If it’s less than 5, round down.</li>
             </ul>
             <div class="example">
-                <p>Example: <strong>Rounding 4.67 to the nearest whole number</strong></p>
+                <p><strong>Example:</strong> Rounding 4.67 to the nearest whole number</p>
                 <p>Step 1: Look at the tenths place (6).<br>
                    Step 2: Since 6 is greater than 5, round up.<br>
                    Result: <strong>5</strong></p>
@@ -201,12 +202,13 @@
             </div>
         </div>
 
-        <div class="info-section">
+        <div class="info-section related-videos">
             <h2>Related Videos</h2>
             <p>Here are some videos to help you understand rounding better:</p>
             <ul>
-                <li><a href="https://www.youtube.com/watch?v=fd-E18EqSVk" target="_blank" style="color: #FFDD44;">Introduction to Rounding <br>& <br> 
-                    Rounding Numbers Explained</a></li>
+                <li>
+                    <a href="https://www.youtube.com/watch?v=fd-E18EqSVk" target="_blank">Introduction to Rounding & Rounding Numbers Explained</a>
+                </li>
             </ul>
         </div>
     </div>

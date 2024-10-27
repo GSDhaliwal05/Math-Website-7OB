@@ -10,14 +10,14 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('images/exponents\ background.jpg');
+            background: url('images/exponents background.jpg');
             background-size: cover;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        
+
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -31,7 +31,7 @@
         }
 
         .nav-links a {
-            color: #FFDD44;
+            color: #FFDD44; /* Bright yellow for links */
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
@@ -39,14 +39,14 @@
         }
 
         .nav-links a:hover {
-            color: #4CAF50;
+            color: #FFD700; /* A brighter shade of yellow on hover */
         }
 
         .content-wrapper {
             padding: 150px; /* Reduced padding */
             max-width: 1200px;
             margin: auto;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(30, 30, 30, 0.7);
             border-radius: 0;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -57,13 +57,13 @@
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             font-size: 48px;
-            color: #4CAF50;
+            color: #FFD700; /* Yellow for the main title */
             margin-bottom: 20px;
             grid-column: span 2; /* Makes the title span across both columns */
         }
 
         h2 {
-            color: #4CAF50;
+            color: #FFD700; /* Yellow for subheadings */
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
@@ -93,7 +93,7 @@
 
         .toggle-answer {
             cursor: pointer;
-            color: #FFDD44;
+            color: #FFDD44; /* Yellow for answer toggle */
             text-decoration: underline;
             margin-top: 5px;
         }
@@ -102,7 +102,17 @@
             display: none;
             margin-top: 10px;
             font-weight: bold;
-            color: #FFDD44;
+            color: #FFDD44; /* Yellow for answers */
+        }
+
+        /* Style for links in the video section */
+        .video-links a {
+            color: #FFDD44; /* Bright yellow for video links */
+            text-decoration: underline;
+        }
+
+        .video-links a:hover {
+            color: #FFD700; /* A brighter shade of yellow on hover */
         }
     </style>
     <script>
@@ -184,8 +194,10 @@
         <div class="info-box" style="grid-column: span 2;"> <!-- This box spans the entire width -->
             <h2>Videos</h2>
             <p>Watch these videos for a better understanding:</p>
-            <p><a href="https://www.youtube.com/watch?v=-zUmvpkhvW8" target="_blank">Video 1: Introduction to Exponents</a></p>
-            <p><a href="https://www.youtube.com/watch?v=ox06qIV2c1U" target="_blank">Video 2: Exponent Rules</a></p>
+            <div class="video-links">
+                <p><a href="https://www.youtube.com/watch?v=-zUmvpkhvW8" target="_blank">Video 1: Introduction to Exponents</a></p>
+                <p><a href="https://www.youtube.com/watch?v=ox06qIV2c1U" target="_blank">Video 2: Exponent Rules</a></p>
+            </div>
         </div>
     </div>
 
