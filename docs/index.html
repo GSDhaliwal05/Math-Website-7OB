@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEDMAS - Math Methods</title>
+    <title>Math Methods</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('images/bedmas background.jpg');
+            background: url('images/website background 2.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -29,94 +28,82 @@
             top: 0;
             z-index: 1000;
         }
-
+        .logo img {
+            width: 150px;
+        }
         .nav-links a {
-            color: #FFDD44;
+            color: #FFDD44; /* Yellow */
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
             transition: color 0.3s;
         }
-
         .nav-links a:hover {
-            color: #44ff4d;
+            color: #44ff4d; /* Yellow */
         }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger div {
-            width: 30px;
-            height: 4px;
-            background: #FFDD44;
-            margin: 5px;
-            transition: all 0.3s;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 60px; /* Adjust based on navbar height */
-            left: 0;
-            background: rgba(0, 0, 0, 0.9);
-            width: 100%;
-        }
-
-        .mobile-menu a {
-            padding: 10px;
+        .hero {
+            background: rgba(0, 0, 0, 0.6) url('images/website background.jpg') center/cover;
+            padding: 60px 20px;
             text-align: center;
-            color: #FFDD44;
-            text-decoration: none;
-            transition: background 0.3s;
         }
-
-        .mobile-menu a:hover {
-            background: rgba(255, 221, 68, 0.3);
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px;
+            color: #FFDD44; /* Yellow */
+            margin: 0;
         }
-
+        .hero p {
+            font-size: 22px;
+            color: #dddddd;
+        }
         .content-wrapper {
-            padding: 50px;
+            padding: 160px;
             max-width: 1200px;
             margin: auto;
-            background: rgba(30, 30, 30, 0.7);
-            border-radius: 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        h1 {
+        .info-box {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 20px;
             text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 48px;
-            color: #FFD700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-bottom: 20px;
-            grid-column: span 2;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 10px;
         }
-
         h2 {
-            color: #FFD700;
+            color: #FFDD44; /* Yellow */
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
         }
-
         p {
             color: #dddddd;
             font-size: 18px;
             line-height: 1.6;
         }
-
-        .info-box {
-            background: rgba(30, 30, 30, 0.8);
+        .image-placeholder {
+            border: 2px solid #FFDD44; /* Yellow */
             padding: 20px;
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            height: 400px; /* Increased height */
             border-radius: 10px;
+            overflow: hidden;
+            width: 100%; /* Adjust width to your preference */
         }
-
+        .image-placeholder img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
         .bottom-bar {
             background-color: rgba(20, 20, 20, 0.9);
             color: #ffffff;
@@ -125,109 +112,103 @@
             font-size: 14px;
             margin-top: auto;
         }
-
-        /* Style for links in the video section */
-        .video-links a {
-            color: #FFDD44;
-            text-decoration: underline;
-        }
-
-        .video-links a:hover {
-            color: #FFD700;
-        }
-
-        /* Team Section Styles */
-        .team-section {
-            grid-column: span 2; /* Makes the team section span both columns */
+        .two-boxes {
             display: flex;
-            justify-content: center;
-            margin-top: 30px;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
         }
-
-        .team-member {
+        /* Resizing photos 1 and 3 */
+        .content-wrapper .info-box img {
+            max-width: 100%; /* Ensures images don’t exceed container width */
+            height: auto;
+        }
+        /* Specific resizing for image 1 (Our Mission) */
+        .two-boxes .info-box:first-child img {
+            width: 80%; /* Adjust to the desired size */
+            max-width: 350px; /* Sets a maximum width */
+        }
+        /* Specific resizing for image 3 (Why Math Matters) */
+        .content-wrapper > .info-box:last-child img {
+            width: 80%; /* Adjust to the desired size */
+            max-width: 350px; /* Sets a maximum width */
+        }
+        .team-section {
+            margin: 0px 0;
             text-align: center;
-            margin: 0 15px; /* Added margin for spacing */
+            display: flex; /* Change to flex for side by side layout */
+            justify-content: center; /* Center the team members */
+            padding: 40px; /* Padding around the team section */
+            background: rgba(30, 30, 30, 0.8); /* Dark background for the team section */
+            border-radius: 1px; /* Border radius for aesthetics */
         }
-
+        .team-member {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .team-member img {
-            border-radius: 50%;
-            width: 100px;
+            width: 200px; /* Adjust width as needed */
             height: 100px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
+            border-radius: 1%; /* Make it circular */
+            border: 2px solid #FFDD44; /* Yellow border */
         }
     </style>
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById("mobileMenu");
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-        }
-    </script>
 </head>
-
 <body>
     <div class="navbar">
         <div class="logo">
-            <a href="index.html"><img src="images/website2logo.png" alt="Math Methods Logo" width="150"></a>
+            <a href="index.html"><img src="images/website2logo.png" alt="Math Methods Logo"></a>
         </div>
         <div class="nav-links">
+            <a href="Tutoring.html">Tutoring</a>
             <a href="Bedmas.html">BEDMAS</a>
             <a href="Exponents.html">Exponents</a>
             <a href="Rounding.html">Rounding</a>
         </div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
     </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="Bedmas.html">BEDMAS</a>
-        <a href="Exponents.html">Exponents</a>
-        <a href="Rounding.html">Rounding</a>
+    <div class="hero">
+        <h1>Welcome to Math Methods</h1>
+        <p>Unlock the beauty of mathematics with easy-to-understand explanations and engaging visuals.</p>
     </div>
-
     <div class="content-wrapper">
-        <h1>BEDMAS</h1>
-
-        <div class="info-box">
-            <h2>BEDMAS Explained</h2>
-            <p>BEDMAS stands for Brackets, Exponents, Division and Multiplication (from left to right), Addition and Subtraction (from left to right).</p>
-        </div>
-
-        <div class="info-box">
-            <h2>Example</h2>
-            <p>For example, in the expression \(8 + 2 \times 5\), you would first do the multiplication:</p>
-            <p><strong>Answer:</strong> \(8 + 10 = 18\)</p>
-        </div>
-
-        <div class="info-box" style="grid-column: span 2;"> <!-- Centered the last info box under the first two -->
-            <h2>Practice Problems</h2>
-            <p>1. Solve: \(3 + 6 \times (5 + 4)\)</p>
-            <p>2. Solve: \(8 \times 2^2 - 3\)</p>
-            <p>3. Solve: \(5 + (2 + 3) \times 4\)</p>
-        </div>
-
-        <div class="info-box" style="grid-column: span 2;">
-            <h2>Videos</h2>
-            <p>Watch these helpful videos to understand BEDMAS better:</p>
-            <div class="video-links">
-                <a href="https://www.youtube.com/watch?v=ZMTzZpR1t94" target="_blank">Understanding BEDMAS</a><br>
-                <a href="https://www.youtube.com/watch?v=Y3b7Fq9fs94" target="_blank">BEDMAS Explained</a>
+        <div class="two-boxes">
+            <div class="info-box">
+                <h2>Our Mission</h2>
+                <p>Math Methods aims to make math accessible and enjoyable. We provide resources for mastering essential concepts through visual aids, examples, and interactive learning.</p>
+                <div class="image-placeholder">
+                    <img src="images/Our Mission.png" alt="Visual of Math in Action">
+                </div>
+            </div>
+            <div class="info-box">
+                <h2>Interactive Learning</h2>
+                <p>Explore math concepts with interactive tools and practice exercises that build a deeper understanding and confidence in math.</p>
+                <div class="image-placeholder">
+                    <img src="images/Students Engaging in Math.jpg" alt="Students Engaging in Math">
+                </div>
             </div>
         </div>
+        <div class="info-box">
+            <h2>Why Math Matters</h2>
+            <p>Mathematics is more than numbers; it's a tool for problem-solving, critical thinking, and innovation. Learn why math is an essential skill for everyone.</p>
+            <div class="image-placeholder">
+                <img src="images/Why Math Matters.png" alt="Symbolic Math Visuals">
+            </div>
+        </div>
+    </div>
 
+    <!-- Our Team Section -->
+    <div class="team-section">
+        <h2>Our Team</h2>
+        <div class="team-member">
+            <img src="images/Jasraj.png" alt="Jasraj's Image">
+            <p>Jasraj</p>
+        </div>
+        <div class="team-member">
+            <img src="images/Ansh.png" alt="Ansh's Image">
+            <p>Ansh</p>
+        </div>
     </div>
 
     <div class="bottom-bar">

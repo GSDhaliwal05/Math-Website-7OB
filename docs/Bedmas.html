@@ -31,7 +31,7 @@
         }
 
         .nav-links a {
-            color: #FFDD44;
+            color: #ffffff;
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
@@ -51,7 +51,7 @@
         .hamburger div {
             width: 30px;
             height: 4px;
-            background: #FFDD44;
+            background: #ffffff;
             margin: 5px;
             transition: all 0.3s;
         }
@@ -69,7 +69,7 @@
         .mobile-menu a {
             padding: 10px;
             text-align: center;
-            color: #FFDD44;
+            color: #ffffff;
             text-decoration: none;
             transition: background 0.3s;
         }
@@ -93,13 +93,13 @@
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             font-size: 48px;
-            color: #FFD700;
+            color: #ffffff;
             margin-bottom: 20px;
             grid-column: span 2;
         }
 
         h2 {
-            color: #FFD700;
+            color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
@@ -126,14 +126,31 @@
             margin-top: auto;
         }
 
+        /* Style for answers */
+        .answer {
+            display: none;
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Style for buttons */
+        .show-answer {
+            background: none;
+            border: none;
+            color: #ffffff;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
         /* Style for links in the video section */
         .video-links a {
-            color: #FFDD44;
+            color: #ffffff;
             text-decoration: underline;
         }
 
         .video-links a:hover {
-            color: #FFD700;
+            color: #ffffff;
         }
 
         /* Team Section Styles */
@@ -171,6 +188,11 @@
         function toggleMenu() {
             const menu = document.getElementById("mobileMenu");
             menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
         }
     </script>
 </head>
@@ -215,8 +237,16 @@
         <div class="info-box" style="grid-column: span 2;"> <!-- Centered the last info box under the first two -->
             <h2>Practice Problems</h2>
             <p>1. Solve: \(3 + 6 \times (5 + 4)\)</p>
+            <button class="show-answer" onclick="toggleAnswer('answer1')">Show Answer</button>
+            <div id="answer1" class="answer">Answer: \(3 + 6 \times 9 = 57\)</div>
+            
             <p>2. Solve: \(8 \times 2^2 - 3\)</p>
+            <button class="show-answer" onclick="toggleAnswer('answer2')">Show Answer</button>
+            <div id="answer2" class="answer">Answer: \(8 \times 4 - 3 = 29\)</div>
+            
             <p>3. Solve: \(5 + (2 + 3) \times 4\)</p>
+            <button class="show-answer" onclick="toggleAnswer('answer3')">Show Answer</button>
+            <div id="answer3" class="answer">Answer: \(5 + 5 \times 4 = 25\)</div>
         </div>
 
         <div class="info-box" style="grid-column: span 2;">
@@ -232,6 +262,17 @@
 
     <div class="bottom-bar">
         <p>&copy; 2024 Math Methods. All rights reserved.</p>
+    </div>
+
+    <div class="team-section">
+        <div class="team-member">
+            <img src="images/an.jpg" alt="Ansh">
+            <p>Ansh</p>
+        </div>
+        <div class="team-member">
+            <img src="images/jasraj.jpg" alt="Jasraj">
+            <p>Jasraj</p>
+        </div>
     </div>
 </body>
 </html>
