@@ -60,7 +60,7 @@
             display: none;
             flex-direction: column;
             position: absolute;
-            top: 60px; /* Adjust based on navbar height */
+            top: 60px;
             left: 0;
             background: rgba(0, 0, 0, 0.9);
             width: 100%;
@@ -155,7 +155,7 @@
 
         /* Team Section Styles */
         .team-section {
-            grid-column: span 2; /* Makes the team section span both columns */
+            grid-column: span 2;
             display: flex;
             justify-content: center;
             margin-top: 30px;
@@ -163,7 +163,7 @@
 
         .team-member {
             text-align: center;
-            margin: 0 15px; /* Added margin for spacing */
+            margin: 0 15px;
         }
 
         .team-member img {
@@ -218,14 +218,15 @@
         <a href="Bedmas.html">BEDMAS</a>
         <a href="Exponents.html">Exponents</a>
         <a href="Rounding.html">Rounding</a>
+        <a href="Tutoring.html">Tutoring</a>
     </div>
 
     <div class="content-wrapper">
         <h1>BEDMAS</h1>
 
         <div class="info-box">
-            <h2>BEDMAS Explained</h2>
-            <p>BEDMAS stands for Brackets, Exponents, Division and Multiplication (from left to right), Addition and Subtraction (from left to right).</p>
+            <h2>BEDMAS explained</h2>
+            <p>BEDMAS stands for brackets, exponents, division and multiplication (from left to right), addition and subtraction (from left to right).</p>
         </div>
 
         <div class="info-box">
@@ -234,18 +235,18 @@
             <p><strong>Answer:</strong> \(8 + 10 = 18\)</p>
         </div>
 
-        <div class="info-box" style="grid-column: span 2;"> <!-- Centered the last info box under the first two -->
-            <h2>Practice Problems</h2>
+        <div class="info-box" style="grid-column: span 2;">
+            <h2>Practice problems</h2>
             <p>1. Solve: \(3 + 6 \times (5 + 4)\)</p>
-            <button class="show-answer" onclick="toggleAnswer('answer1')">Show Answer</button>
+            <button class="show-answer" onclick="toggleAnswer('answer1')">Show answer</button>
             <div id="answer1" class="answer">Answer: \(3 + 6 \times 9 = 57\)</div>
             
             <p>2. Solve: \(8 \times 2^2 - 3\)</p>
-            <button class="show-answer" onclick="toggleAnswer('answer2')">Show Answer</button>
+            <button class="show-answer" onclick="toggleAnswer('answer2')">Show answer</button>
             <div id="answer2" class="answer">Answer: \(8 \times 4 - 3 = 29\)</div>
             
             <p>3. Solve: \(5 + (2 + 3) \times 4\)</p>
-            <button class="show-answer" onclick="toggleAnswer('answer3')">Show Answer</button>
+            <button class="show-answer" onclick="toggleAnswer('answer3')">Show answer</button>
             <div id="answer3" class="answer">Answer: \(5 + 5 \times 4 = 25\)</div>
         </div>
 
@@ -254,25 +255,24 @@
             <p>Watch these helpful videos to understand BEDMAS better:</p>
             <div class="video-links">
                 <a href="https://www.youtube.com/watch?v=ZMTzZpR1t94" target="_blank">Understanding BEDMAS</a><br>
-                <a href="https://www.youtube.com/watch?v=Y3b7Fq9fs94" target="_blank">BEDMAS Explained</a>
+                <a href="https://www.youtube.com/watch?v=Y3b7Fq9fs94" target="_blank">BEDMAS explained</a>
             </div>
         </div>
 
+        <div class="team-section">
+            <div class="team-member">
+                <img src="images/ansh.jpg" alt="Ansh's Photo">
+                <p>Ansh</p>
+            </div>
+            <div class="team-member">
+                <img src="images/jasraj.jpg" alt="Jasraj's Photo">
+                <p>Jasraj</p>
+            </div>
+        </div>
     </div>
 
     <div class="bottom-bar">
         <p>&copy; 2024 Math Methods. All rights reserved.</p>
-    </div>
-
-    <div class="team-section">
-        <div class="team-member">
-            <img src="images/an.jpg" alt="Ansh">
-            <p>Ansh</p>
-        </div>
-        <div class="team-member">
-            <img src="images/jasraj.jpg" alt="Jasraj">
-            <p>Jasraj</p>
-        </div>
     </div>
 </body>
 </html>
