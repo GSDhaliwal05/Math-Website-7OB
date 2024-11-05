@@ -23,7 +23,7 @@
             justify-content: space-between;
             align-items: center;
             background: rgba(0, 0, 0, 0.8);
-            padding: 10px 30px; /* Reduced padding */
+            padding: 10px 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             position: sticky;
             top: 0;
@@ -31,7 +31,7 @@
         }
 
         .nav-links a {
-            color: #FFDD44; /* Bright yellow for links */
+            color: #FFDD44;
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
@@ -39,38 +39,74 @@
         }
 
         .nav-links a:hover {
-            color: #44ff4d; /* A brighter shade of yellow on hover */
+            color: #44ff4d;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 4px;
+            background: #FFDD44;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Adjust based on navbar height */
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            width: 100%;
+        }
+
+        .mobile-menu a {
+            padding: 10px;
+            text-align: center;
+            color: #FFDD44;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(255, 221, 68, 0.3);
         }
 
         .content-wrapper {
-            padding: 150px; /* Reduced padding */
+            padding: 150px;
             max-width: 1200px;
             margin: auto;
             background: rgba(30, 30, 30, 0.7);
             border-radius: 0;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px; /* Space between the boxes */
+            gap: 20px;
         }
 
         h1 {
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             font-size: 48px;
-            color: #FFD700; /* Yellow for the main title */
+            color: #FFD700;
             margin-bottom: 20px;
-            grid-column: span 2; /* Makes the title span across both columns */
+            grid-column: span 2;
         }
 
         h2 {
-            color: #FFD700; /* Yellow for subheadings */
+            color: #FFD700;
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
         }
 
         h3 {
-            color: #FFD700; /* Yellow for team member names */
+            color: #FFD700;
             font-size: 24px;
             margin-top: 10px;
         }
@@ -99,7 +135,7 @@
 
         .toggle-answer {
             cursor: pointer;
-            color: #FFDD44; /* Yellow for answer toggle */
+            color: #FFDD44;
             text-decoration: underline;
             margin-top: 5px;
         }
@@ -108,49 +144,58 @@
             display: none;
             margin-top: 10px;
             font-weight: bold;
-            color: #FFDD44; /* Yellow for answers */
+            color: #FFDD44;
         }
 
-        /* Style for links in the video section */
         .video-links a {
-            color: #FFDD44; /* Bright yellow for video links */
+            color: #FFDD44;
             text-decoration: underline;
         }
 
         .video-links a:hover {
-            color: #FFD700; /* A brighter shade of yellow on hover */
+            color: #FFD700;
         }
 
-        /* Team Section Styles */
         .team-section {
-            grid-column: span 2; /* Makes the team section span both columns */
+            grid-column: span 2;
             display: flex;
             justify-content: space-around;
             margin-top: 30px;
-            flex-wrap: wrap; /* Wraps members to next line if needed */
+            flex-wrap: wrap;
         }
 
         .team-member {
             text-align: center;
-            margin: 10px; /* Margin around each team member */
+            margin: 10px;
         }
 
         .team-member img {
-            border-radius: 50%; /* Circular image */
-            width: 100px; /* Fixed width for images */
-            height: 100px; /* Fixed height for images */
-            object-fit: cover; /* Ensures the image covers the area */
-            margin-bottom: 10px; /* Space between image and name */
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
         }
     </style>
     <script>
         function toggleAnswer(answerId) {
             const answerElement = document.getElementById(answerId);
-            if (answerElement.style.display === "none") {
-                answerElement.style.display = "block";
-            } else {
-                answerElement.style.display = "none";
-            }
+            answerElement.style.display = answerElement.style.display === "none" ? "block" : "none";
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
         }
     </script>
 </head>
@@ -165,10 +210,21 @@
             <a href="Exponents.html">Exponents</a>
             <a href="Rounding.html">Rounding</a>
         </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="Bedmas.html">BEDMAS</a>
+        <a href="Exponents.html">Exponents</a>
+        <a href="Rounding.html">Rounding</a>
     </div>
 
     <div class="content-wrapper">
-        <h1>Exponents</h1> <!-- Main title for Exponents page -->
+        <h1>Exponents</h1>
 
         <div class="info-box">
             <h2>Exponential Form</h2>
@@ -209,30 +265,23 @@
                 <span class="toggle-answer" onclick="toggleAnswer('answer4')">Show Answer</span>
                 <span id="answer4" class="answer">Answer: \(6^2 = 36\)</span>
             </p>
-            <p>2. Expand \(2^4\). 
+            <p>2. Expand \(7^3\) and provide the answer. 
                 <span class="toggle-answer" onclick="toggleAnswer('answer5')">Show Answer</span>
-                <span id="answer5" class="answer">Answer: \(2^4 = 2 \times 2 \times 2 \times 2 = 16\)</span>
-            </p>
-            <p>3. Convert \(10^3\) into standard form. 
-                <span class="toggle-answer" onclick="toggleAnswer('answer6')">Show Answer</span>
-                <span id="answer6" class="answer">Answer: \(10^3 = 1000\)</span>
+                <span id="answer5" class="answer">Answer: \(7^3 = 7 \times 7 \times 7 = 343\)</span>
             </p>
         </div>
 
-        <div class="info-box video-links">
+        <div class="video-links info-box">
             <h2>Videos</h2>
-            <p>Check out these videos for a better understanding of exponents:</p>
-            <ul>
-                <li><a href="https://www.example.com/video1" target="_blank">Understanding Exponents</a></li>
-                <li><a href="https://www.example.com/video2" target="_blank">Exponents Explained</a></li>
-            </ul>
+            <p>1. <a href="https://www.youtube.com/watch?v=xyz123">Understanding Exponents</a></p>
+            <p>2. <a href="https://www.youtube.com/watch?v=abc456">Exponent Rules Explained</a></p>
         </div>
 
         
     </div>
 
     <div class="bottom-bar">
-        &copy; 2024 Math Methods. All rights reserved.
+        <p>&copy; 2024 Math Methods. All rights reserved.</p>
     </div>
 </body>
 </html>

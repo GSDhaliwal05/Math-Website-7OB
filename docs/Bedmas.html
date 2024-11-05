@@ -10,7 +10,7 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: url('images/bedmas\ background.jpg');
+            background: url('images/bedmas background.jpg');
             background-size: cover;
             color: #ffffff;
             display: flex;
@@ -40,6 +40,42 @@
 
         .nav-links a:hover {
             color: #44ff4d;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 4px;
+            background: #FFDD44;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Adjust based on navbar height */
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            width: 100%;
+        }
+
+        .mobile-menu a {
+            padding: 10px;
+            text-align: center;
+            color: #FFDD44;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(255, 221, 68, 0.3);
         }
 
         .content-wrapper {
@@ -120,7 +156,23 @@
             object-fit: cover;
             margin-bottom: 10px;
         }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
     </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
 </head>
 
 <body>
@@ -133,6 +185,17 @@
             <a href="Exponents.html">Exponents</a>
             <a href="Rounding.html">Rounding</a>
         </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="Bedmas.html">BEDMAS</a>
+        <a href="Exponents.html">Exponents</a>
+        <a href="Rounding.html">Rounding</a>
     </div>
 
     <div class="content-wrapper">
