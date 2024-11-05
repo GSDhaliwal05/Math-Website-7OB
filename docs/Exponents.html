@@ -87,6 +87,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            flex: 1; /* This makes the content fill the available space */
         }
 
         h1 {
@@ -130,7 +131,6 @@
             text-align: center;
             padding: 10px;
             font-size: 14px;
-            margin-top: auto;
         }
 
         .toggle-answer {
@@ -232,7 +232,7 @@
 
         <div class="info-box">
             <h2>Exponential Form</h2>
-            <p>Exponential form is expressed as \(a^n\), where \(a\) is the base and \(n\) is the exponent.</p>
+            <p>Exponential form is expressed as \(a^n\), where \(a\) is the base and \(n\) is the exponent. The exponent tells us how many times to multiply the base by itself.</p>
             <p><strong>Example:</strong> \(2^3 = 2 \times 2 \times 2 = 8\)</p>
             <h3>Worked Example</h3>
             <p>Calculate \(4^2\): 
@@ -243,74 +243,38 @@
 
         <div class="info-box">
             <h2>Expanded Form</h2>
-            <p>Expanded form shows the multiplication explicitly.</p>
-            <p><strong>Example:</strong> \(3^4 = 3 \times 3 \times 3 \times 3 = 81\)</p>
-            <h3>Worked Example</h3>
-            <p>Expand \(5^3\): 
-                <span class="toggle-answer" onclick="toggleAnswer('answer2')">Show Answer</span>
-                <span id="answer2" class="answer">Answer: \(5^3 = 5 \times 5 \times 5 = 125\)</span>
-            </p>
+            <p>Exponential notation can also be written in expanded form. Instead of using the base and exponent, you multiply the base by itself the number of times indicated by the exponent.</p>
+            <p><strong>Example:</strong> \(3^4\) in expanded form is \(3 \times 3 \times 3 \times 3 = 81\)</p>
         </div>
 
         <div class="info-box">
             <h2>Standard Form</h2>
-            <p>Standard form is the numerical value of an exponent.</p>
-            <p><strong>Example:</strong> \(5^2 = 25\)</p>
-            <h3>Worked Example</h3>
-            <p>Convert \(2^5\): 
-                <span class="toggle-answer" onclick="toggleAnswer('answer3')">Show Answer</span>
-                <span id="answer3" class="answer">Answer: \(2^5 = 2 \times 2 \times 2 \times 2 \times 2 = 32\)</span>
-            </p>
+            <p>Standard form for an exponent is simply the result of the multiplication. For instance, the standard form of \(2^5\) is \(32\).</p>
+            <p><strong>Example:</strong> \(5^3 = 5 \times 5 \times 5 = 125\) (standard form)</p>
         </div>
 
         <div class="info-box">
-            <h2>Practice Exercises</h2>
-            <p>1. Write \(6^2\) in exponential form and calculate it. 
-                <span class="toggle-answer" onclick="toggleAnswer('answer4')">Show Answer</span>
-                <span id="answer4" class="answer">Answer: \(6^2 = 36\)</span>
-            </p>
-            <p>2. Expand \(2^4\) and calculate it.
-                <span class="toggle-answer" onclick="toggleAnswer('answer5')">Show Answer</span>
-                <span id="answer5" class="answer">Answer: \(2^4 = 2 \times 2 \times 2 \times 2 = 16\)</span>
-            </p>
-            <p>3. What is the standard form of \(3^3\)?
-                <span class="toggle-answer" onclick="toggleAnswer('answer6')">Show Answer</span>
-                <span id="answer6" class="answer">Answer: \(3^3 = 27\)</span>
-            </p>
+            <h2>Practice</h2>
+            <p><strong>1. What is \(3^4\)?</strong></p>
+            <span class="toggle-answer" onclick="toggleAnswer('answer2')">Show Answer</span>
+            <span id="answer2" class="answer">Answer: \(3^4 = 81\)</span>
+
+            <p><strong>2. What is \(7^2\)?</strong></p>
+            <span class="toggle-answer" onclick="toggleAnswer('answer3')">Show Answer</span>
+            <span id="answer3" class="answer">Answer: \(7^2 = 49\)</span>
         </div>
 
         <div class="video-links">
-            <h2>Videos for Further Learning</h2>
-            <iframe src="https://www.youtube.com/embed/example1" title="YouTube Video 1" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/example2" title="YouTube Video 2" allowfullscreen></iframe>
+            <h2>Help With Exponents</h2>
+            <iframe src="https://www.youtube.com/embed/NS4vHqJIPiE" title="YouTube video" allowfullscreen></iframe>
+
         </div>
 
-        <div class="team-section">
-            <h2>Our Team</h2>
-            <div class="team-member">
-                <img src="images/Ansh.jpg" alt="Ansh">
-                <p>Ansh</p>
-            </div>
-            <div class="team-member">
-                <img src="images/Jasraj.jpg" alt="Jasraj">
-                <p>Jasraj</p>
-            </div>
-        </div>
+        
     </div>
 
     <div class="bottom-bar">
-        &copy; 2024 Math Methods. All rights reserved.
+        <p>&copy; 2024 Math Methods. All rights reserved.</p>
     </div>
-
-    <script>
-        // Toggle mobile menu visibility
-        const hamburger = document.querySelector('.hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', () => {
-            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-        });
-    </script>
 </body>
 </html>
-

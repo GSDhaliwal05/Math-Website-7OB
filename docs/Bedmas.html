@@ -87,6 +87,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            flex: 1;
         }
 
         h1 {
@@ -96,6 +97,7 @@
             color: #ffffff;
             margin-bottom: 20px;
             grid-column: span 2;
+            text-transform: capitalize;
         }
 
         h2 {
@@ -103,12 +105,14 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 36px;
             margin-bottom: 15px;
+            text-transform: capitalize;
         }
 
         p {
             color: #dddddd;
             font-size: 18px;
             line-height: 1.6;
+            text-transform: capitalize;
         }
 
         .info-box {
@@ -126,14 +130,12 @@
             margin-top: auto;
         }
 
-        /* Style for answers */
         .answer {
             display: none;
             color: #ffffff;
             text-decoration: underline;
         }
 
-        /* Style for buttons */
         .show-answer {
             background: none;
             border: none;
@@ -143,7 +145,6 @@
             font-size: 16px;
         }
 
-        /* Style for links in the video section */
         .video-links a {
             color: #ffffff;
             text-decoration: underline;
@@ -153,7 +154,6 @@
             color: #ffffff;
         }
 
-        /* Team Section Styles */
         .team-section {
             grid-column: span 2;
             display: flex;
@@ -226,57 +226,52 @@
         <h1>BEDMAS</h1>
 
         <div class="info-box">
-            <h2>BEDMAS explained</h2>
-            <p>BEDMAS stands for brackets, exponents, division and multiplication (from left to right), addition and subtraction (from left to right).</p>
+            <h2>BEDMAS Explained</h2>
+            <p>BEDMAS is an acronym that stands for:</p>
+            <ul>
+                <li><strong>B</strong>rackets (Parentheses)</li>
+                <li><strong>E</strong>xponents (Powers and Roots)</li>
+                <li><strong>D</strong>ivision</li>
+                <li><strong>M</strong>ultiplication</li>
+                <li><strong>A</strong>ddition</li>
+                <li><strong>S</strong>ubtraction</li>
+            </ul>
+            <p>When solving mathematical expressions, always follow this order to get the correct result. Operations inside parentheses are solved first, then exponents (like squares or square roots), followed by division and multiplication (from left to right), and finally, addition and subtraction (from left to right).</p>
         </div>
 
         <div class="info-box">
             <h2>Example</h2>
             <p>For example, in the expression \(8 + 2 \times 5\), you would first do the multiplication:</p>
             <p><strong>Answer:</strong> \(8 + 10 = 18\)</p>
+            <p>Here's a more complex example:</p>
+            <p>Solve \(3 + 6 \times (5 + 4)\). First, you solve the parentheses: \(5 + 4 = 9\), then multiply: \(6 \times 9 = 54\), and finally add: \(3 + 54 = 57\).</p>
         </div>
 
         <div class="info-box" style="grid-column: span 2;">
-            <h2>Practice problems</h2>
+            <h2>Practice Problems</h2>
             <p>1. Solve: \(3 + 6 \times (5 + 4)\)</p>
-            <button class="show-answer" onclick="toggleAnswer('answer1')">Show answer</button>
+            <button class="show-answer" onclick="toggleAnswer('answer1')">Show Answer</button>
             <div id="answer1" class="answer">Answer: \(3 + 6 \times 9 = 57\)</div>
             
             <p>2. Solve: \(8 \times 2^2 - 3\)</p>
-            <button class="show-answer" onclick="toggleAnswer('answer2')">Show answer</button>
+            <button class="show-answer" onclick="toggleAnswer('answer2')">Show Answer</button>
             <div id="answer2" class="answer">Answer: \(8 \times 4 - 3 = 29\)</div>
             
             <p>3. Solve: \(5 + (2 + 3) \times 4\)</p>
-            <button class="show-answer" onclick="toggleAnswer('answer3')">Show answer</button>
+            <button class="show-answer" onclick="toggleAnswer('answer3')">Show Answer</button>
             <div id="answer3" class="answer">Answer: \(5 + 5 \times 4 = 25\)</div>
         </div>
 
         <div class="info-box" style="grid-column: span 2;">
-            <h2>Videos</h2>
-            <p>Watch these helpful videos to understand BEDMAS better:</p>
+            <h2>Video About BEDMAS</h2>
             <div class="video-links">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZMTzZpR1t94" title="Understanding BEDMAS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <br><br>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Y3b7Fq9fs94" title="BEDMAS explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="team-section">
-            <div class="team-member">
-                <img src="images/Ansh.jpg" alt="Ansh">
-                <p><strong>Ansh</strong></p>
-                <p>Website Developer/Info Giver</p>
-            </div>
-            <div class="team-member">
-                <img src="images/Jasraj.jpg" alt="Jasraj">
-                <p><strong>Jasraj</strong></p>
-                <p>Info Giver</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dAgfnK528RA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 
     <div class="bottom-bar">
-        &copy; 2024 Math Methods. All rights reserved.
+        <p>© 2024 Math Methods - All Rights Reserved</p>
     </div>
 </body>
 </html>
